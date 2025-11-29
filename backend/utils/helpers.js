@@ -13,15 +13,14 @@ export function generateId() {
 }
 
 export function validateEmail(email) {
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[cC][oO][mM]$/;
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailRegex.test(email);
 }
 
 export function validatePassword(password) {
-  const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/;
   return {
-    isValid: password.length >= 6 && passwordRegex.test(password),
-    message: "Password must be at least 6 characters long and contain at least one uppercase letter, one lowercase letter, and one number"
+    isValid: password.length >= 6,
+    message: "Password must be at least 6 characters long"
   };
 }
 
